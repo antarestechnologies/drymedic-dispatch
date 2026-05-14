@@ -21,7 +21,7 @@ export async function GET() {
 
     const workbook = await client
       .api(
-        "/me/drive/root:/DRYmedic_Dispatch_Board.xlsx:/workbook/worksheets('Live Dispatch')/usedRange"
+        "/sites/drymedic150-my.sharepoint.com:/personal/carson_drymedicbirminghamal_com:/drive/root:/DRYmedic_Dispatch_Board.xlsx:/workbook/worksheets('Live Dispatch')/usedRange"
       )
       .get();
 
