@@ -301,9 +301,9 @@ export default function DispatchBoard() {
   grid
   grid-cols-2
   md:grid-cols-4
-  lg:grid-cols-10
+ lg:grid-cols-[1.2fr_.8fr_1.2fr_1fr_1fr_1fr_.8fr_1fr_.8fr_2fr]
   gap-3
-  items-center
+  items-start
 ">
 
                 <div>
@@ -403,9 +403,9 @@ export default function DispatchBoard() {
                     Notes
                   </p>
 
-                  <h3 className="text-sm truncate">
-                    {job.notes}
-                  </h3>
+                  <h3 className="text-sm break-words whitespace-normal leading-snug">
+  {job.notes}
+</h3>
                 </div>
 
               </div>
