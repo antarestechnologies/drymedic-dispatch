@@ -24,7 +24,33 @@ type DispatchItem = {
   foreman: string;
   notes: string;
 };
+const formatExcelTime = (value: any) => {
+  if (!value) return "-";
 
+  // Already formatted text
+  if (typeof value === "string" && value.includes(":")) {
+    return value;
+  }
+
+  // Excel serial time conversion
+  const excelTime = Number(value);
+
+  if (isNaN(excelTime)) return value;
+
+  const totalMinutes = Math.round(excelTime * 24 * 60);
+
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  const period = hours >= 12 ? "PM" : "AM";
+
+  const formattedHour =
+    hours % 12 === 0 ? 12 : hours % 12;
+
+  return `${formattedHour}:${minutes
+    .toString()
+    .padStart(2, "0")} ${period}`;
+};
 const statusStyles: Record<string, string> = {
   "En Route":
     "bg-orange-500/10 border-orange-500/60",
@@ -119,8 +145,8 @@ export default function DispatchBoard() {
   city: row[3] || "",
   service: row[4] || "",
   status: row[5] || "",
-  dispatchTime: row[6] || "",
-  eta: row[7] || "",
+dispatchTime: formatExcelTime(row[6]),
+eta: formatExcelTime(row[7]),
   equipment: row[8] || "",
   priority: row[9] || "",
   foreman: row[10] || "",
@@ -144,16 +170,16 @@ export default function DispatchBoard() {
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(181,18,27,0.18),transparent_40%)] pointer-events-none" />
 
-<div className="flex items-center gap-4">
+<div className="flex items-center gap-6">
 
-  <Image
-    src="/drymedic-logo.png"
-    alt="DRYmedic"
-    width={140}
-    height={50}
-    priority
-    className="object-contain"
-  />
+<Image
+  src="/drymedic-logo.png"
+  alt="DRYmedic"
+  width={220}
+  height={80}
+  priority
+  className="object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]"
+/>
 
   <div>
     <h1 className="text-2xl font-bold tracking-tight">
