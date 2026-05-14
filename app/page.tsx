@@ -145,139 +145,131 @@ export default function DispatchBoard() {
       </header>
 
 
-     {/* Dispatch Cards */}
+ {/* Dispatch Cards */}
 <section className="relative z-10 px-4 py-3">
   <div className="grid grid-cols-1 gap-3">
     {dispatch.map((job, index) => (
       <div
         key={index}
-        className={`rounded-3xl border p-3 backdrop-blur-md shadow-2xl transition-all ${statusStyles[job.status]}`}
+        className={`rounded-2xl border p-3 backdrop-blur-md shadow-xl transition-all ${statusStyles[job.status]}`}
       >
-        <div className="grid grid-cols-8 gap-3 items-center">
+        <div className="grid grid-cols-10 gap-3 items-center">
 
           {/* Technician */}
           <div>
-            <p className="text-sm uppercase tracking-widest opacity-60">
+            <p className="text-[9px] uppercase opacity-60">
               Technician
             </p>
 
-            <h2 className="text-3xl font-bold mt-1">
+            <h2 className="text-lg font-bold">
               {job.technician}
             </h2>
           </div>
 
-          {/* Job Number */}
+          {/* Job */}
           <div>
-            <p className="text-sm uppercase tracking-widest opacity-60">
-              Job #
+            <p className="text-[9px] uppercase opacity-60">
+              Job
             </p>
 
-            <h3 className="text-2xl font-semibold mt-1">
+            <h3 className="text-sm font-semibold">
               {job.job}
             </h3>
           </div>
 
           {/* Customer */}
           <div>
-            <p className="text-sm uppercase tracking-widest opacity-60">
+            <p className="text-[9px] uppercase opacity-60">
               Customer
             </p>
 
-            <h3 className="text-2xl font-semibold mt-1">
+            <h3 className="text-sm font-semibold">
               {job.customer}
             </h3>
           </div>
 
           {/* City */}
           <div>
-            <p className="text-sm uppercase tracking-widest opacity-60">
+            <p className="text-[9px] uppercase opacity-60">
               Location
             </p>
 
-            <h3 className="text-2xl font-semibold mt-1">
+            <h3 className="text-sm font-semibold">
               {job.city}
             </h3>
           </div>
 
           {/* Service */}
           <div>
-            <p className="text-sm uppercase tracking-widest opacity-60">
+            <p className="text-[9px] uppercase opacity-60">
               Service
             </p>
 
-            <div className="flex items-center gap-2 mt-1">
-              <Droplets className="w-5 h-5" />
-
-              <span className="text-xl font-medium">
-                {job.service}
-              </span>
-            </div>
+            <h3 className="text-sm font-medium">
+              {job.service}
+            </h3>
           </div>
 
           {/* Status */}
           <div>
-            <p className="text-sm uppercase tracking-widest opacity-60">
+            <p className="text-[9px] uppercase opacity-60">
               Status
             </p>
 
-            <div className="flex items-center gap-2 mt-1">
-              {job.status === "On Site" ? (
-                <CheckCircle2 className="w-5 h-5" />
-              ) : (
-                <Truck className="w-5 h-5" />
-              )}
-
-              <span className="text-2xl font-bold">
-                {job.status}
-              </span>
-            </div>
+            <h3 className="text-sm font-bold">
+              {job.status}
+            </h3>
           </div>
 
           {/* ETA */}
           <div>
-            <p className="text-sm uppercase tracking-widest opacity-60">
+            <p className="text-[9px] uppercase opacity-60">
               ETA
             </p>
 
-            <h3 className="text-3xl font-bold mt-1">
+            <h3 className="text-base font-bold">
               {job.eta}
             </h3>
           </div>
 
-{/* Crew Lead */}
-<div>
-  <p className="text-[9px] uppercase opacity-60">
-    Lead
-  </p>
+          {/* Crew Lead */}
+          <div>
+            <p className="text-[9px] uppercase opacity-60">
+              Lead
+            </p>
 
-  <h3 className="text-sm font-semibold mt-1">
-    {job.crewLead}
-  </h3>
-</div>
+            <h3 className="text-sm font-semibold">
+              {job.crewLead}
+            </h3>
+          </div>
 
-{/* Priority */}
-<div>
-  <p className="text-[9px] uppercase opacity-60">
-    Priority
-  </p>
+          {/* Priority */}
+          <div>
+            <p className="text-[9px] uppercase opacity-60">
+              Priority
+            </p>
 
-  <h3 className="text-sm font-bold mt-1">
-    {job.priority}
-  </h3>
-</div>
+            <h3 className="text-sm font-bold">
+              {job.priority}
+            </h3>
+          </div>
 
-{/* Notes */}
-<div>
-  <p className="text-[9px] uppercase opacity-60">
-    Notes
-  </p>
+          {/* Notes */}
+          <div>
+            <p className="text-[9px] uppercase opacity-60">
+              Notes
+            </p>
 
-  <h3 className="text-sm font-medium mt-1 truncate">
-    {job.notes}
-  </h3>
-</div>
+            <h3 className="text-sm truncate">
+              {job.notes}
+            </h3>
+          </div>
+
+        </div>
+      </div>
+    ))}
+  </div>
 </section>
-
       {/* Footer */}
       <footer className="absolute bottom-0 left-0 right-0 border-t border-white/10 px-10 py-4 flex items-center justify-between bg-black/20 backdrop-blur-md">
         <p className="text-zinc-400 text-sm">
