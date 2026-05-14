@@ -237,7 +237,7 @@ export default function DispatchBoard() {
           {/* Crew Lead */}
           <div>
             <p className="text-[9px] uppercase opacity-60">
-              Lead
+              Foreman
             </p>
 
             <h3 className="text-sm font-semibold">
