@@ -198,7 +198,14 @@ export default function DispatchBoard() {
       {/* Header */}
       <header className="relative z-10 border-b border-white/10 px-6 py-4">
 
-        <div className="flex items-center justify-between">
+        <div className="
+  flex
+  flex-col
+  lg:flex-row
+  lg:items-center
+  lg:justify-between
+  gap-4
+">
 
           {/* LEFT */}
           <div className="flex items-center gap-6">
@@ -209,7 +216,12 @@ export default function DispatchBoard() {
               width={220}
               height={80}
               priority
-              className="object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]"
+              className="
+  object-contain
+  w-[140px]
+  lg:w-[220px]
+  drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]
+"
             />
 
             <div>
@@ -225,7 +237,12 @@ export default function DispatchBoard() {
           </div>
 
           {/* RIGHT */}
-          <div className="flex items-center gap-4">
+          <div className="
+  flex
+  flex-wrap
+  items-center
+  gap-4
+">
 
             {/* WEATHER */}
             <div className="bg-white/5 border border-white/10 rounded-2xl px-5 py-3 backdrop-blur-md">
@@ -288,7 +305,14 @@ export default function DispatchBoard() {
               `}
             >
 
-              <div className="grid grid-cols-10 gap-3 items-center">
+              <<div className="
+  grid
+  grid-cols-2
+  md:grid-cols-4
+  lg:grid-cols-10
+  gap-3
+  items-center
+">
 
                 <div>
                   <p className="text-[9px] uppercase opacity-60">
