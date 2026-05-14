@@ -83,21 +83,28 @@ const priorityStyles: Record<string, string> = {
 export default function DispatchBoard() {
   const [dispatch, setDispatch] = useState<DispatchItem[]>([]);
   const [weather, setWeather] = useState<any>(null);
-  const [currentTime, setCurrentTime] = useState("");
+  const [currentDate, setCurrentDate] = useState("");
 
   // LIVE CLOCK
   useEffect(() => {
-    const updateClock = () => {
-      const now = new Date();
+const updateClock = () => {
+  const now = new Date();
 
-      setCurrentTime(
-        now.toLocaleTimeString("en-US", {
-          hour: "numeric",
-          minute: "2-digit",
-        })
-      );
-    };
+  setCurrentTime(
+    now.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+    })
+  );
 
+  setCurrentDate(
+    now.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+    })
+  );
+};
     updateClock();
 
     const interval = setInterval(updateClock, 1000);
@@ -269,9 +276,15 @@ notes: row[12] || "",
 
                 <Clock3 className="w-5 h-5 text-red-400" />
 
-                <h2 className="text-3xl font-bold tracking-wide">
-                  {currentTime}
-                </h2>
+                <div>
+  <h2 className="text-5xl font-bold tracking-wide leading-none">
+    {currentTime}
+  </h2>
+
+  <p className="text-sm text-zinc-300 mt-2 uppercase tracking-widest">
+    {currentDate}
+  </p>
+</div>
 
               </div>
             </div>
