@@ -21,7 +21,7 @@ type DispatchItem = {
   eta: string;
   equipment: string;
   priority: string;
-  crewLead: string;
+  foreman: string;
   notes: string;
 };
 
@@ -102,7 +102,7 @@ export default function DispatchBoard() {
   eta: row[7] || "",
   equipment: row[8] || "",
   priority: row[9] || "",
-  crewLead: row[10] || "",
+  foreman: row[10] || "",
   notes: row[11] || "",
 }));
 
@@ -241,7 +241,7 @@ export default function DispatchBoard() {
             </p>
 
             <h3 className="text-sm font-semibold">
-              {job.crewLead}
+              {job.foreman}
             </h3>
           </div>
 
