@@ -305,7 +305,7 @@ export default function DispatchBoard() {
               `}
             >
 
-              <<div className="
+              <div className="
   grid
   grid-cols-2
   md:grid-cols-4
