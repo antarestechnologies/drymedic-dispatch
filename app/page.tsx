@@ -83,6 +83,8 @@ const priorityStyles: Record<string, string> = {
 export default function DispatchBoard() {
   const [dispatch, setDispatch] = useState<DispatchItem[]>([]);
   const [weather, setWeather] = useState<any>(null);
+
+  const [currentTime, setCurrentTime] = useState("");
   const [currentDate, setCurrentDate] = useState("");
 
   // LIVE CLOCK
