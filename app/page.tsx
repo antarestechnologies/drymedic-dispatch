@@ -59,55 +59,56 @@ export default function DispatchBoard() {
 
   // FETCH EXCEL DATA
   useEffect(() => {
-    const fetchExcelData = async () => {
-      try {
-        /**
-         * REPLACE THIS WITH YOUR EXCEL CSV SHARE LINK
-         *
-         * Microsoft 365 Excel:
-         * File -> Share -> Publish -> CSV
-         *
-         * OR:
-         * Use Graph API later for auth/security
-         */
+  const fetchDispatch = async () => {
+    try {
+      const response = await fetch("/api/dispatch");
 
-        const response = await fetch(
-          "https://drymedic150-my.sharepoint.com/:x:/g/personal/carson_drymedicbirminghamal_com/IQAulEtLPNLTR4xIl7WBsOs2AcbR1LxEaJNrtR1rAaTlpGg?e=YoJ3uN"
-        );
+      const data = await response.json();
 
-        const csvText = await response.text();
+      // Find actual header row
+      const headerIndex = data.findIndex(
+        (row: any[]) => row.includes("Technician")
+      );
 
-        const rows = csvText
-          .split("\n")
-          .map((row) => row.split(","));
+      if (headerIndex === -1) return;
 
-        // Remove header row
-        rows.shift();
+      // Remove blank rows above header
+      const rows = data.slice(headerIndex + 1);
 
-        const parsed = rows.map((row) => ({
-          technician: row[0],
-          customer: row[1],
-          city: row[2],
-          service: row[3],
-          status: row[4],
-          eta: row[5],
-          priority: row[6],
-        }));
+      // Remove empty rows
+      const cleanedRows = rows.filter(
+        (row: any[]) =>
+          row.some(
+            (cell) =>
+              cell !== null &&
+              cell !== undefined &&
+              cell !== ""
+          )
+      );
 
-        setDispatch(parsed);
-      } catch (error) {
-        console.error("Failed loading dispatch data:", error);
-      }
-    };
+      const parsed = cleanedRows.map((row: any[]) => ({
+        technician: row[0] || "",
+        job: row[1] || "",
+        customer: row[2] || "",
+        city: row[3] || "",
+        service: row[4] || "",
+        status: row[5] || "",
+        eta: row[7] || "",
+        priority: row[9] || "",
+      }));
 
-    fetchExcelData();
+      setDispatch(parsed);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    // AUTO REFRESH EVERY 30 SECONDS
-    const refresh = setInterval(fetchExcelData, 30000);
+  fetchDispatch();
 
-    return () => clearInterval(refresh);
-  }, []);
+  const interval = setInterval(fetchDispatch, 30000);
 
+  return () => clearInterval(interval);
+}, []);
   return (
     <main className="min-h-screen bg-[#0f1115] text-white overflow-hidden">
       {/* Background */}
