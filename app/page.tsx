@@ -126,6 +126,14 @@ export default function DispatchBoard() {
 
     return () => clearInterval(interval);
   }, []);
+    // HARD PAGE REFRESH EVERY 30 SECONDS
+  useEffect(() => {
+    const interval = setInterval(() => {
+      window.location.reload();
+    }, 30000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   // FETCH EXCEL DATA
   useEffect(() => {
