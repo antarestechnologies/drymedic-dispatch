@@ -6,8 +6,9 @@ import { Clock3 } from "lucide-react";
 
 type DispatchItem = {
   technician: string;
-  job: string;
-  customer: string;
+job: string;
+stop: string;
+customer: string;
   city: string;
   service: string;
   status: string;
@@ -155,17 +156,18 @@ export default function DispatchBoard() {
 
         const parsed = cleanedRows.map((row: any[]) => ({
           technician: row[0] || "",
-          job: row[1] || "",
-          customer: row[2] || "",
-          city: row[3] || "",
-          service: row[4] || "",
-          status: row[5] || "",
-          dispatchTime: formatExcelTime(row[6]),
-          eta: formatExcelTime(row[7]),
-          equipment: row[8] || "",
-          priority: row[9] || "",
-          foreman: row[10] || "",
-          notes: row[11] || "",
+job: row[1] || "",
+stop: row[2] || "",
+customer: row[3] || "",
+city: row[4] || "",
+service: row[5] || "",
+status: row[6] || "",
+dispatchTime: formatExcelTime(row[7]),
+eta: formatExcelTime(row[8]),
+equipment: row[9] || "",
+priority: row[10] || "",
+foreman: row[11] || "",
+notes: row[12] || "",
         }));
 
         setDispatch(parsed);
@@ -301,7 +303,7 @@ export default function DispatchBoard() {
   grid
   grid-cols-2
   md:grid-cols-4
- lg:grid-cols-[1.2fr_.8fr_1.2fr_1fr_1fr_1fr_.8fr_1fr_.8fr_2fr]
+ lg:grid-cols-[1.2fr_.8fr_.6fr_1.2fr_1fr_1fr_1fr_.8fr_1fr_.8fr_2fr]
   gap-3
   items-start
 ">
@@ -325,7 +327,15 @@ export default function DispatchBoard() {
                     {job.job}
                   </h3>
                 </div>
+<div>
+  <p className="text-[11px] uppercase opacity-60">
+    Stop
+  </p>
 
+  <h3 className="text-base lg:text-lg font-semibold">
+    {job.stop}
+  </h3>
+</div>
                 <div>
                   <p className="text-[9px] uppercase opacity-60">
                     Customer
