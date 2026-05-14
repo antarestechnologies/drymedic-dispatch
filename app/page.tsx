@@ -126,7 +126,7 @@ export default function DispatchBoard() {
       {/* Header */}
       <header className="relative z-10 border-b border-white/10 px-10 py-6 flex items-center justify-between">
         <div>
-          <h1 className="text-4xl font-bold tracking-tight">
+          <h1 className="text-2xl font-bold tracking-tight">
             DRYmedic Live Dispatch
           </h1>
 
@@ -146,14 +146,14 @@ export default function DispatchBoard() {
 
 
      {/* Dispatch Cards */}
-<section className="relative z-10 px-10 py-8">
-  <div className="grid grid-cols-1 gap-6">
+<section className="relative z-10 px-4 py-3">
+  <div className="grid grid-cols-1 gap-3">
     {dispatch.map((job, index) => (
       <div
         key={index}
-        className={`rounded-3xl border p-6 backdrop-blur-md shadow-2xl transition-all ${statusStyles[job.status]}`}
+        className={`rounded-3xl border p-3 backdrop-blur-md shadow-2xl transition-all ${statusStyles[job.status]}`}
       >
-        <div className="grid grid-cols-8 gap-6 items-center">
+        <div className="grid grid-cols-8 gap-3 items-center">
 
           {/* Technician */}
           <div>
@@ -244,62 +244,43 @@ export default function DispatchBoard() {
             </h3>
           </div>
 
-          {/* Priority */}
-          <div>
-            <p className="text-sm uppercase tracking-widest opacity-60">
-              Priority
-            </p>
+{/* Crew Lead */}
+<div>
+  <p className="text-[9px] uppercase opacity-60">
+    Lead
+  </p>
 
-            <h3 className="text-2xl font-bold mt-1">
-              {job.priority}
-            </h3>
-          </div>
-        </div>
+  <h3 className="text-sm font-semibold mt-1">
+    {job.crewLead}
+  </h3>
+</div>
 
-        {/* Bottom Details */}
-        <div className="grid grid-cols-3 gap-6 mt-6 border-t border-white/10 pt-5">
+{/* Priority */}
+<div>
+  <p className="text-[9px] uppercase opacity-60">
+    Priority
+  </p>
 
-          {/* Crew Lead */}
-          <div>
-            <p className="text-sm uppercase tracking-widest opacity-60">
-              Crew Lead
-            </p>
+  <h3 className="text-sm font-bold mt-1">
+    {job.priority}
+  </h3>
+</div>
 
-            <p className="text-xl font-semibold mt-1">
-              {job.crewLead}
-            </p>
-          </div>
+{/* Notes */}
+<div>
+  <p className="text-[9px] uppercase opacity-60">
+    Notes
+  </p>
 
-          {/* Equipment */}
-          <div>
-            <p className="text-sm uppercase tracking-widest opacity-60">
-              Equipment
-            </p>
-
-            <p className="text-xl font-semibold mt-1">
-              {job.equipment}
-            </p>
-          </div>
-
-          {/* Notes */}
-          <div>
-            <p className="text-sm uppercase tracking-widest opacity-60">
-              Notes
-            </p>
-
-            <p className="text-lg mt-1 text-zinc-200">
-              {job.notes}
-            </p>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
+  <h3 className="text-sm font-medium mt-1 truncate">
+    {job.notes}
+  </h3>
+</div>
 </section>
 
       {/* Footer */}
       <footer className="absolute bottom-0 left-0 right-0 border-t border-white/10 px-10 py-4 flex items-center justify-between bg-black/20 backdrop-blur-md">
-        <p className="text-zinc-400 text-lg">
+        <p className="text-zinc-400 text-sm">
           DRYmedic Birmingham Operations Center
         </p>
 
