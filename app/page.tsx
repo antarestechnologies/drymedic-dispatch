@@ -12,12 +12,17 @@ import {
 
 type DispatchItem = {
   technician: string;
-  city: string;
+  job: string;
   customer: string;
+  city: string;
   service: string;
   status: string;
+  dispatchTime: string;
   eta: string;
+  equipment: string;
   priority: string;
+  crewLead: string;
+  notes: string;
 };
 
 const statusStyles: Record<string, string> = {
@@ -139,22 +144,6 @@ export default function DispatchBoard() {
         </div>
       </header>
 
-      {/* Emergency Banner */}
-      <section className="relative z-10 px-10 pt-6">
-        <div className="bg-red-600/15 border border-red-500 rounded-2xl px-6 py-4 flex items-center gap-4">
-          <AlertTriangle className="w-7 h-7 text-red-400" />
-
-          <div>
-            <h2 className="font-semibold text-xl">
-              Live Technician Tracking
-            </h2>
-
-            <p className="text-zinc-300">
-              Dashboard synced directly to cloud dispatch spreadsheet
-            </p>
-          </div>
-        </div>
-      </section>
 
      {/* Dispatch Cards */}
 <section className="relative z-10 px-10 py-8">
