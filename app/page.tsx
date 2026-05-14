@@ -221,7 +221,7 @@ export default function DispatchBoard() {
                 Live Dispatch
               </h1>
 
-              <p className="text-sm text-zinc-400">
+              <p className="text-base lg:text-lg text-zinc-400">
                 Technician Operations Dashboard
               </p>
             </div>
@@ -311,7 +311,7 @@ export default function DispatchBoard() {
                     Technician
                   </p>
 
-                  <h2 className="text-lg font-bold">
+                  <h2 className="text-2xl font-bold">
                     {job.technician}
                   </h2>
                 </div>
@@ -321,7 +321,7 @@ export default function DispatchBoard() {
                     Job
                   </p>
 
-                  <h3 className="text-sm font-semibold">
+                  <h3 className="text-lg font-semibold">
                     {job.job}
                   </h3>
                 </div>
@@ -331,7 +331,7 @@ export default function DispatchBoard() {
                     Customer
                   </p>
 
-                  <h3 className="text-sm font-semibold">
+                  <h3 className="text-base lg:text-lg font-semibold">
                     {job.customer}
                   </h3>
                 </div>
@@ -341,7 +341,7 @@ export default function DispatchBoard() {
                     Location
                   </p>
 
-                  <h3 className="text-sm font-semibold">
+                  <h3 className="text-base lg:text-lg font-semibold">
                     {job.city}
                   </h3>
                 </div>
@@ -351,7 +351,7 @@ export default function DispatchBoard() {
                     Service
                   </p>
 
-                  <h3 className="text-sm font-medium">
+                  <h3 className="text-base lg:text-lg font-medium">
                     {job.service}
                   </h3>
                 </div>
@@ -361,7 +361,7 @@ export default function DispatchBoard() {
                     Status
                   </p>
 
-                  <h3 className="text-sm font-bold">
+                  <h3 className="text-base lg:text-lg font-bold">
                     {job.status}
                   </h3>
                 </div>
@@ -381,7 +381,7 @@ export default function DispatchBoard() {
                     Foreman
                   </p>
 
-                  <h3 className="text-sm font-semibold">
+                  <h3 className="text-base lg:text-lg font-semibold">
                     {job.foreman}
                   </h3>
                 </div>
