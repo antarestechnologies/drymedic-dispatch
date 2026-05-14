@@ -27,15 +27,36 @@ type DispatchItem = {
 
 const statusStyles: Record<string, string> = {
   "En Route":
-    "bg-orange-500/20 border-orange-500 text-orange-300",
+    "bg-orange-500/10 border-orange-500/60",
+
   "On Site":
-    "bg-blue-500/20 border-blue-500 text-blue-300",
+    "bg-blue-500/10 border-blue-500/60",
+
   Drying:
-    "bg-cyan-500/20 border-cyan-500 text-cyan-300",
+    "bg-cyan-500/10 border-cyan-500/60",
+
   Completed:
-    "bg-green-500/20 border-green-500 text-green-300",
+    "bg-green-500/10 border-green-500/60",
+
   Scheduled:
-    "bg-zinc-500/20 border-zinc-500 text-zinc-300",
+    "bg-zinc-500/10 border-zinc-500/60",
+
+  "Emergency Call":
+    "bg-red-600/15 border-red-500/80 animate-pulse",
+};
+
+const priorityStyles: Record<string, string> = {
+  Low:
+    "bg-zinc-600 text-white",
+
+  Medium:
+    "bg-yellow-500 text-black",
+
+  High:
+    "bg-orange-500 text-white",
+
+  Emergency:
+    "bg-red-600 text-white animate-pulse",
 };
 
 export default function DispatchBoard() {
@@ -153,7 +174,13 @@ export default function DispatchBoard() {
     {dispatch.map((job, index) => (
       <div
         key={index}
-        className={`rounded-2xl border p-3 backdrop-blur-md shadow-xl transition-all ${statusStyles[job.status]}`}
+        className={`
+  rounded-2xl border p-3 backdrop-blur-md shadow-xl transition-all
+  ${statusStyles[job.status]}
+  ${job.priority === "Emergency"
+    ? "shadow-red-500/40 shadow-2xl"
+    : ""}
+`}
       >
         <div className="grid grid-cols-10 gap-3 items-center">
 
@@ -245,16 +272,18 @@ export default function DispatchBoard() {
             </h3>
           </div>
 
-          {/* Priority */}
-          <div>
-            <p className="text-[9px] uppercase opacity-60">
-              Priority
-            </p>
+{/* Priority */}
+<div>
+  <p className="text-[9px] uppercase opacity-60">
+    Priority
+  </p>
 
-            <h3 className="text-sm font-bold">
-              {job.priority}
-            </h3>
-          </div>
+  <div
+    className={`inline-flex px-2 py-1 rounded-full text-xs font-bold mt-1 ${priorityStyles[job.priority]}`}
+  >
+    {job.priority}
+  </div>
+</div>
 
           {/* Notes */}
           <div>
