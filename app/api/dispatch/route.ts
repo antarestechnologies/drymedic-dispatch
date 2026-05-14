@@ -19,12 +19,13 @@ export async function GET() {
       },
     });
 
-    const workbook = await client
-.api(
-  "/users/carson@drymedicbirminghamal.com/drive/root:/DRYmedic_Dispatch_Board.xlsx:/workbook/worksheets('Live Dispatch')/usedRange"
-)
+const workbook: any = await client
+  .api(
+    "/users/carson@drymedicbirminghamal.com/drive/root:/DRYmedic_Dispatch_Board.xlsx:/workbook/worksheets('Live Dispatch')/usedRange"
+  )
+  .get();
 
-    return Response.json(workbook.values);
+return Response.json(workbook.values);
   } catch (error: any) {
     console.error(error);
 
