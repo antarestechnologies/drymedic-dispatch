@@ -72,7 +72,7 @@ export default function DispatchBoard() {
          */
 
         const response = await fetch(
-          "https://drymedic150-my.sharepoint.com/:x:/g/personal/carson_drymedicbirminghamal_com/IQCJJ8Vol4MKSKIJ5WjTLi5iAVS43Nl966cuAYQ-SCKICZ8?e=OwcPw4&nav=MTVfezE5NkQyNTNBLTRDQkYtNEZCMy04NTQ1LURGNzI4QjI0MDhFN30"
+          "https://drymedic150-my.sharepoint.com/:x:/g/personal/carson_drymedicbirminghamal_com/IQAulEtLPNLTR4xIl7WBsOs2AcbR1LxEaJNrtR1rAaTlpGg?e=YoJ3uN"
         );
 
         const csvText = await response.text();
