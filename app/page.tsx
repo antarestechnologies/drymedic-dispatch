@@ -1,6 +1,6 @@
 // app/page.tsx
 "use client";
-
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
   Clock3,
@@ -123,26 +123,28 @@ export default function DispatchBoard() {
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(181,18,27,0.18),transparent_40%)] pointer-events-none" />
 
-      {/* Header */}
-      <header className="relative z-10 border-b border-white/10 px-10 py-6 flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight">
-            DRYmedic Live Dispatch
-          </h1>
+<div className="flex items-center gap-4">
 
-          <p className="text-zinc-400 mt-1 text-lg">
-            Technician Operations Dashboard
-          </p>
-        </div>
+  <Image
+    src="/drymedic-logo.png"
+    alt="DRYmedic"
+    width={140}
+    height={50}
+    priority
+    className="object-contain"
+  />
 
-        <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-3">
-          <Clock3 className="w-6 h-6 text-red-400" />
+  <div>
+    <h1 className="text-2xl font-bold tracking-tight">
+      Live Dispatch
+    </h1>
 
-          <span className="text-3xl font-semibold tracking-wide">
-            {time}
-          </span>
-        </div>
-      </header>
+    <p className="text-sm text-zinc-400">
+      Technician Operations Dashboard
+    </p>
+  </div>
+
+</div>
 
 
  {/* Dispatch Cards */}
